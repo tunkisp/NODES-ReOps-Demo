@@ -7,7 +7,8 @@
 //
 // REVISION HISTORY
 //
-//
+// tunkisp    2024-11-07    Commenting out use cases by tool--leaving for 
+//                          reference/use with parameterized filters?
 //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -30,15 +31,15 @@ RETURN COUNT(DISTINCT u.use_case)
 //// Tools, Use Cases
 
 // Number of use-cases by tool
-MATCH (t:Tool)<-[u:USES]-()
-RETURN t.tool AS Tool // Category
-    , COUNT(u) AS `Use Cases` // Value
-    , u.use_case AS `Use Case` // Group
+//MATCH (t:Tool)<-[u:USES]-()
+//RETURN t.tool AS Tool // Category
+//    , COUNT(u) AS `Use Cases` // Value
+//    , u.use_case AS `Use Case` // Group
 
-// Number of unique tools by use-case
+// Number of tools by use-case
 MATCH (t:Tool)<-[u:USES]-()
 RETURN u.use_case AS `Use Case` // Category
-    , COUNT(DISTINCT t) AS Tools // Value
+    , COUNT(t) AS Tools // Value
     , t.tool AS Tool // Group
 
 //// Respondent Demographics
